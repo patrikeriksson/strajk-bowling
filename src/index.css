@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fff4f1;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+legend,
+li {
+  font-family: "Bebas Neue", serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+p,
+input,
+label,
+button {
+  font-family: "Work Sans", serif;
+}
+
+form {
+  width: 100%;
+}
+
+fieldset {
+  border: none;
+  border-top: 1px solid purple;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+legend {
+  padding: 0 0.5rem;
+  color: #441d81;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+input {
+  color: #222222;
+  border: 1px solid #441d81;
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 0.75rem;
+  height: 52px;
+  line-height: 28.15px;
+  letter-spacing: 0.03em;
+  font-size: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ec315a;
+  color: #ec315a;
+}
+
+label {
+  color: #441d81;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+button {
+  border: none;
+  border-radius: 4px;
+  background-color: #ec315a;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.15px;
+  letter-spacing: 0.03em;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+a {
+  text-decoration: none;
+}

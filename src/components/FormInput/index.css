@@ -1,0 +1,17 @@
+.input-container {
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.input-container:focus-within label {
+  color: #ec315a;
+}
+
+label {
+  padding: 0 6px;
+  background-color: #fff4f1;
+  position: absolute;
+  top: -6px;
+  left: 18px;
+  z-index: 3;
+}
