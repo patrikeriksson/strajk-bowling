@@ -37,7 +37,7 @@ form {
 
 fieldset {
   border: none;
-  border-top: 1px solid purple;
+  border-top: 1px solid #441d81;
   margin: 0 0 2rem;
   padding: 0;
 }
@@ -82,9 +82,9 @@ button {
   border-radius: 4px;
   background-color: #ec315a;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
-  line-height: 28.15px;
+  line-height: 1.75rem;
   letter-spacing: 0.03em;
   width: 100%;
   padding: 1rem 0;
