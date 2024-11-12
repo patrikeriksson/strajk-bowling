@@ -5,6 +5,8 @@ type FormInputProps = {
   label: string;
   placeholder?: string;
   type?: string;
+  value?: string | number;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const FormInput = ({
@@ -12,10 +14,19 @@ const FormInput = ({
   label,
   placeholder,
   type = "text",
+  value,
+  onChange,
 }: FormInputProps) => (
   <div className="input-container">
     <label htmlFor={id}>{label}</label>
-    <input type={type} id={id} placeholder={placeholder} required />
+    <input
+      type={type}
+      id={id}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      required
+    />
   </div>
 );
 

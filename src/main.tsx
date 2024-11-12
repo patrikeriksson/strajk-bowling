@@ -11,9 +11,12 @@ createRoot(document.getElementById("root")!).render(
 );
 
 // TODO
-// edit confirmation page
 // G functionality requirements
-// might have to rethink the FormInput
+// Almost there with booking, might have to look at row 57
+// Work on confirmation
 
-// VG
-// some basic animations
+// VG requirements
+// players and shoes should match
+// max 4 players per lane
+
+// Add some animations

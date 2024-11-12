@@ -1,8 +1,11 @@
 import Menu from "../../components/Menu";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import "./index.css";
 
 export default function Confirmation() {
+  const location = useLocation();
+  const { bookingId, totalPrice, date, lanes, players } = location.state;
+
   return (
     <>
       <Menu />
@@ -18,20 +21,20 @@ export default function Confirmation() {
         </div>
         <div className="booking-details">
           <h3 className="booking-details__subtitle">WHEN</h3>
-          <p className="booking-details__info">time here</p>
+          <p className="booking-details__info">{date}</p>
 
           <h3 className="booking-details__subtitle">WHO</h3>
-          <p className="booking-details__info">N pers here</p>
+          <p className="booking-details__info">{players}</p>
 
           <h3 className="booking-details__subtitle">LANES</h3>
-          <p className="booking-details__info">N lanes here</p>
+          <p className="booking-details__info">{lanes}</p>
 
           <h3 className="booking-details__subtitle">BOOKING NUMBER</h3>
-          <p className="booking-details__info">STR812744</p>
+          <p className="booking-details__info">{bookingId}</p>
 
           <div className="total">
             <h3 className="total__title">TOTAL</h3>
-            <p className="total__price">460 sek</p>
+            <p className="total__price">{totalPrice} sek</p>
           </div>
         </div>
         <NavLink to="/booking" className="confirmation__button">
