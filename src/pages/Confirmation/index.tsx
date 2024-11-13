@@ -1,10 +1,39 @@
 import Menu from "../../components/Menu";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useBooking } from "../../context/BookingContext";
 import "./index.css";
 
 export default function Confirmation() {
-  const location = useLocation();
-  const { bookingId, totalPrice, date, lanes, players } = location.state;
+  const { bookingData } = useBooking();
+
+  if (!bookingData) {
+    return (
+      <>
+        <Menu />
+        <main className="confirmation">
+          <img
+            className="confirmation__img"
+            src="/strajk.svg"
+            alt="Strajk Bowling Logo"
+          />
+          <h1 className="confirmation__title">
+            YOU HAVEN'T MADE A BOOKING YET
+          </h1>
+          <NavLink to="/booking" className="confirmation__button">
+            BACK TO BOOKING
+          </NavLink>
+        </main>
+      </>
+    );
+  }
+
+  const {
+    id: bookingId,
+    price: totalPrice,
+    when: date,
+    lanes,
+    people: players,
+  } = bookingData;
 
   return (
     <>

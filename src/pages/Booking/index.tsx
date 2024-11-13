@@ -1,9 +1,10 @@
 import "./index.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RequestData, ResponseData } from "../../types/types";
+import { BookingRequest, BookingConfirmation } from "../../types/types";
 import { FormInput } from "../../components/FormInput";
 import Menu from "../../components/Menu";
+import { useBooking } from "../../context/BookingContext";
 
 export default function Booking() {
   const [date, setDate] = useState<string>("");
@@ -13,6 +14,7 @@ export default function Booking() {
   const [shoeSizes, setShoeSizes] = useState<string[]>([""]);
 
   const navigate = useNavigate();
+  const { setBookingData } = useBooking();
 
   const addShoeSize = () => {
     setShoeSizes([...shoeSizes, ""]);
@@ -31,7 +33,7 @@ export default function Booking() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const requestData: RequestData = {
+    const bookingRequest: BookingRequest = {
       when: `${date} ${time}`,
       lanes,
       people: players,
@@ -45,24 +47,18 @@ export default function Booking() {
           headers: {
             "x-api-key": "738c6b9d-24cf-47c3-b688-f4f4c5747662",
           },
-          body: JSON.stringify(requestData),
+          body: JSON.stringify(bookingRequest),
         }
       );
 
       if (!response.ok) {
         throw new Error("Failed to submit booking");
       }
-      const responseData: ResponseData = await response.json();
+      const bookingConfirmation: BookingConfirmation = await response.json();
 
-      navigate("/confirmation", {
-        state: {
-          bookingId: responseData.id,
-          totalPrice: responseData.price,
-          date: requestData.when,
-          lanes: responseData.lanes,
-          players: responseData.people,
-        },
-      });
+      setBookingData(bookingConfirmation);
+
+      navigate("/confirmation");
     } catch (error) {
       console.error("Error submitting booking:", error);
       alert("There was an error processing your booking. Please try again.");

@@ -1,11 +1,11 @@
-export type RequestData = {
+export type BookingRequest = {
   when: string;
   lanes: number;
   people: number;
   shoes: number[];
 };
 
-export type ResponseData = {
+export type BookingConfirmation = {
   when: string;
   lanes: number;
   people: number;
