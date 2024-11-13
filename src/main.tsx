@@ -14,8 +14,4 @@ createRoot(document.getElementById("root")!).render(
 );
 
 // TODO
-// VG requirements
-// players and shoes should match
-// max 4 players per lane
-
 // Add some animations

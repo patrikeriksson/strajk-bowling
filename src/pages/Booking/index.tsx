@@ -13,6 +13,8 @@ export default function Booking() {
   const [lanes, setLanes] = useState<number>(1);
   const [shoeSizes, setShoeSizes] = useState<string[]>([""]);
 
+  const [error, setError] = useState<string | null>(null);
+
   const navigate = useNavigate();
   const { setBookingData } = useBooking();
 
@@ -32,6 +34,18 @@ export default function Booking() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (shoeSizes.length !== players) {
+      setError("Number of shoes must match the number of players");
+      return;
+    }
+
+    if (players > lanes * 4) {
+      setError("Each lane can have a maximum of 4 players");
+      return;
+    }
+
+    setError(null);
 
     const bookingRequest: BookingRequest = {
       when: `${date} ${time}`,
@@ -120,6 +134,7 @@ export default function Booking() {
                   value={size}
                   onChange={(e) => handleShoeSizeChange(index, e.target.value)}
                 />
+
                 <button
                   type="button"
                   onClick={() => removeShoeSize(index)}
@@ -133,6 +148,7 @@ export default function Booking() {
               +
             </button>
           </fieldset>
+          {error && <p className="error__message">{error}</p>}
           <button className="booking__button" type="submit">
             STRIIIIIIKE!
           </button>
