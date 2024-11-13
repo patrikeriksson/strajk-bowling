@@ -19,9 +19,12 @@
 }
 
 .menu__item {
-  color: #ec315a;
   font-size: 3rem;
   line-height: 3.6rem;
   letter-spacing: 0.03em;
   margin-bottom: 3rem;
+}
+
+.menu__item a {
+  color: #ec315a;
 }

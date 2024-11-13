@@ -4,11 +4,14 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/router";
 import { BookingProvider } from "./context/BookingContext";
+import { AnimatePresence } from "framer-motion";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BookingProvider>
-      <RouterProvider router={router} />
+      <AnimatePresence mode="wait">
+        <RouterProvider router={router} />
+      </AnimatePresence>
     </BookingProvider>
   </StrictMode>
 );
