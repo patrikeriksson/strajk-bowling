@@ -17,4 +17,6 @@ createRoot(document.getElementById("root")!).render(
 );
 
 // TODO
-// Add some animations
+// Add some animations:
+// Button feedback
+// Slide in shoes when added/removed
