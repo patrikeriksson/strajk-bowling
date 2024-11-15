@@ -15,6 +15,8 @@ export default function Booking() {
 
   const [error, setError] = useState<string | null>(null);
 
+  const currentDate = new Date().toISOString().split("T")[0];
+
   const navigate = useNavigate();
   const { setBookingData } = useBooking();
 
@@ -97,6 +99,7 @@ export default function Booking() {
                 id="input-date"
                 label="DATE"
                 type="date"
+                min={currentDate}
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
               />

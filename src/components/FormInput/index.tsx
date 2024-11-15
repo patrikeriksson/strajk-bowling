@@ -3,6 +3,7 @@ import "./index.css";
 type FormInputProps = {
   id: string;
   label: string;
+  min?: string;
   placeholder?: string;
   type?: string;
   value?: string | number;
@@ -16,6 +17,7 @@ const FormInput = ({
   type = "text",
   value,
   onChange,
+  min,
 }: FormInputProps) => (
   <div className="input-container">
     <label htmlFor={id}>{label}</label>
@@ -25,6 +27,7 @@ const FormInput = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      min={min}
       required
     />
   </div>
